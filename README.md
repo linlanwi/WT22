@@ -1,2 +1,2 @@
-# WebTech22-23
+# WT22
 Repository für die Semesteraufgabe
