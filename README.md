@@ -1,2 +1,2 @@
 # WT22
-Repository für die Semesteraufgabe
+Repository von QuyNy Hoang und Lin Lan Wi Nguyen für die Semesteraufgabe.
