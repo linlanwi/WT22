@@ -1,1 +1,2 @@
 # .gitignore ist für das Ignorieren von Dateien, die nicht nach GitHub eingecheckt werden sollen
+.idea
