@@ -1,4 +1,5 @@
 const express = require('express'); // importieren Express
+const cors = require('cors'); // Cross-origin resource sharing
 const routes = require('./routes'); // servers.js wird eingebunden
 const mongoose = require('mongoose'); // um sich in Node.js mit der MongoDB zu verbinden
 const app = express(); // erzeugen ein express Objekt, speichern dieses in app
@@ -7,6 +8,10 @@ require('dotenv').config(); // importiert dotenv-Paket (für sicheren Zugang)
 // config()-Funktion liest die .env-Datei ein
 
 app.use(express.json()); // alle JavaScript-Objekte in der response nach JSON umwandeln
+
+// enable cors for all requests
+app.use(cors());
+
 app.use('/', routes); // verwendet server.js; "erstellt" localhost:3000/ 
 
 // connect to mongoDB
