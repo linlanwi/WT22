@@ -112,5 +112,5 @@ router.delete('/members/:id', async(req, res) => {
 
 
 
-//------------------------- Allgemeines zu Route.js ----------------------------------------
+//------------------------- Allgemeines zu Route.js -------------------------------------------
 // bei Router handelt es sich um eine Middleware, die Routen verwaltet und request-Objekte an die entsprechenden Routen weiterleitet & response-Obj. empfängt
