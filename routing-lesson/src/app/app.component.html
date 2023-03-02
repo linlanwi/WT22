@@ -1,0 +1,39 @@
+<!-- hier wurde viel vom ursprünglichen -->
+<!-- Template gelöscht                  -->
+
+<!-- 1. Möglichkeit -->
+<h1>Hier ist AppComponent</h1>
+<ul>
+  <li>
+    <a href="/">home</a> <!-- Startseite -->
+  </li>
+  <li>
+    <a href="/first">first</a>
+  </li>
+  <li>
+    <a href="/second">second</a>
+  </li>
+</ul>
+<router-outlet></router-outlet>
+<!-- Hyperlinks, um direkt in die jeweilige Komponente zu springen -->
+
+
+<!-- 2. Möglichkeit (besser! Aber nur für interne Links, verhindert das Nachladen) -->
+<h1>Hier ist AppComponent</h1>
+<ul>
+  <li>
+    <a routerLink="/">home</a>
+  </li>
+  <li>
+    <a routerLink="/first">first</a>
+  </li>
+  <li>
+    <a [routerLink]="['/second']">second</a> <!-- Property Binding Schreibweise -->
+  </li>
+</ul>
+<router-outlet></router-outlet>
+<!-- Single Page Applikation bedeutet, die Seite wird nur einmal geladen und alle anderen Inhalte werden dynamisch geladen -->
+
+
+<!-- Allgemeines -->
+<!-- router-outlet: Routing überlassen, die Komponenten dynamisch - abhängig von dem jeweils gewählten Pfad - einbinden zu lassen -->
