@@ -30,10 +30,9 @@ module.exports = router;
 // (CREATE) post one member
 router.post('/members', async(req, res) => {
     const newMember = new Member({
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        email: req.body.email,
-        ipaddress: req.body.ipaddress
+        title: req.body.title,
+        description: req.body.description,
+        completed: Boolean(req.body.completed) // konvertiert String in Boolean
     })
     await newMember.save();
     res.send(newMember);
@@ -69,20 +68,16 @@ router.patch('/members/:id', async(req, res) => {
     try {
         const member = await Member.findOne({ _id: req.params.id })
 
-        if (req.body.firstname) {
-            member.firstname = req.body.firstname
+        if (req.body.title) {
+            member.title = req.body.title
         }
 
-        if (req.body.lastname) {
-            member.lastname = req.body.lastname
+        if (req.body.description) {
+            member.description = req.body.description
         }
 
-        if (req.body.email) {
-            member.email = req.body.email
-        }
-
-        if (req.body.ipaddress) {
-            member.ipaddress = req.body.ipaddress
+        if (req.body.completed) {
+            member.completed = req.body.completed
         }
 
         await Member.updateOne({ _id: req.params.id }, member);
