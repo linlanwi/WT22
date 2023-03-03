@@ -1,10 +1,8 @@
 const mongoose = require('mongoose');
 
 const schema = new mongoose.Schema({
-    firstname: String,
-    lastname: String,
-    email: String,
-    ipaddress: String
+    task: String,
+    completed: String
 });
 
 module.exports = mongoose.model('Member', schema); // Datenmodell heißt Member
