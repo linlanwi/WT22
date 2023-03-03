@@ -15,9 +15,9 @@ app.use(cors());
 app.use('/', routes); // verwendet server.js; "erstellt" localhost:3000/ 
 
 // connect to mongoDB
-mongoose.connect(process.env.DB_CONNECTION, { dbName: process.env.DATABASE }); // greifen auf den Wert von DB_CONNECTION & DATABASE zu
+// mongoose.connect(process.env.DB_CONNECTION, { dbName: process.env.DATABASE }); // greifen auf den Wert von DB_CONNECTION & DATABASE zu
 // auf die in der .env-Datei hinterlegten Schlüssel-Werte-Paare, kann mittels process.env.<Schlüssel> zugegegriffen werden
-mongoose.connect('mongodb://127.0.0.1:27017/members', { dbName: 'members' });
+mongoose.connect('mongodb://127.0.0.1:27017/todos', { dbName: 'todos' });
 const db = mongoose.connection;
 db.on('error', err => {
   console.log(err);
@@ -25,6 +25,7 @@ db.on('error', err => {
 db.once('open', () => {
     console.log('connected to DB');
 });
+// Methode once gibt an, dass die Verbindung nur einmal geöffnet wird und dass der Server erst bei erfolgreicher Verbindung gestartet wird
 
 // Zeile 11-17: Aufruf listen()-Funktion startet den Webserver
 app.listen(PORT, (error) => {

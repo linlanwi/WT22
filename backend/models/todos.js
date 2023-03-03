@@ -6,7 +6,7 @@ const schema = new mongoose.Schema({
     completed: Boolean
 });
 
-module.exports = mongoose.model('Member', schema); // Datenmodell heißt Member
+module.exports = mongoose.model('Todo', schema); // Datenmodell heißt Member
 
 // Mongoose ist Schema-basiert (Schema ist wie ein Datenmodell)
 // Schema wird durch Aufruf des Konstruktors new Schema() erstellt
