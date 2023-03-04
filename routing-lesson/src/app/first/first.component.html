@@ -1,3 +1,9 @@
 <h3>Hier ist FirstComponent</h3>
+<ul>
+  <li><a routerLink="/first/one">first/one</a></li>
+  <li><a routerLink="/first/two">first/two</a></li>
+</ul>
 <p *ngIf="id">{{ id }}</p>
 
+<router-outlet></router-outlet>
+<!-- router-outlet für die Routen first/one und first/two -->
