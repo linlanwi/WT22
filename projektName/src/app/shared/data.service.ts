@@ -4,6 +4,7 @@ import { Data } from './data';
 @Injectable({
   providedIn: 'root'
 })
+//@Injectable() wird mittels providedIn: root angegeben, dass der Service von allen Komponenten innerhalb des Root-Moduls genutzt werden kann.
 export class DataService {
   data: Data[];
 
@@ -92,6 +93,20 @@ export class DataService {
     getAll(): Data[] {
         return this.data;
     }
+
+    getOne(id: number): Data {
+      return this.data[id-1];
+    }
+    // hier wird aber nicht geprüft, ob id-1 ein korrekter index ist
+    // bei id=1 wäre es index=0, also das Berlin Objekt
+
+    //besser
+    /*getOne(id: number): Data {
+      let index = id-1;
+      index = index % this.data.length;
+      return this.data[index];
+    }*/
+
 }
 
 // haben das staedte array hinzugefügt und das interface data importiert

@@ -10,6 +10,7 @@ import { AboutComponent } from './about/about.component';
 import { FooterComponent } from './footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CitiesComponent } from './cities/cities.component';
+import { CityComponent } from './cities/city/city.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CitiesComponent } from './cities/cities.component';
     LoginComponent,
     AboutComponent,
     FooterComponent,
-    CitiesComponent
+    CitiesComponent,
+    CityComponent
   ],
   imports: [
     BrowserModule,

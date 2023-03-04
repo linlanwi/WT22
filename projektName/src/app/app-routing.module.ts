@@ -1,3 +1,5 @@
+import { AuthguardGuard } from './authguard.guard';
+import { CityComponent } from './cities/city/city.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
@@ -21,7 +23,13 @@ const routes: Routes = [
   },
   {
     path: "cities",
-    component: CitiesComponent
+    component: CitiesComponent,
+    canActivate: [AuthguardGuard]
+  },
+  {
+    path: "cities/:id",
+    component: CityComponent,
+    canActivate: [AuthguardGuard]
   }
 ];
 // pathMatch gibt an, dass diese Route nur aufgerufen wird, wenn danach nichts weiter in der URL folgt

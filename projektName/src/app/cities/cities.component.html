@@ -10,6 +10,7 @@
               <th scope="col">Jahr</th>
               <th scope="col">Stadt</th>
               <th scope="col">Bild</th>
+              <th scope="col"></th>
           </tr>
       </thead>
       <tbody>
@@ -22,6 +23,9 @@
                       <img [src]=" stadt.bild " [alt]="stadt.stadt " />
                   </a>
               </td>
+              <td>
+                <a [routerLink]="['/cities', (i+1)]">Detail</a>
+            </td>
           </tr>
       </tbody>
   </table>

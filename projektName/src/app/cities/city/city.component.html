@@ -1,0 +1,23 @@
+<div class="container">
+  <div *ngIf="stadt" class="mt-5">
+
+      <div class="card m-4" style="width: 30%">
+          <img class="card-img-top" [src]="stadt.bild" [alt]="stadt.stadt">
+          <div class="card-body">
+              <h4>Willkommen in {{ stadt.stadt }} </h4>
+          </div>
+      </div>
+      <a class="btn btn-secondary m-4 px-4" [routerLink]="['/cities', stadt.id-1]"> &lt; </a> <!-- Navigationsbutton-->
+      <a class="btn btn-secondary m-4 px-4" [routerLink]="'/cities'">Zurück zur Liste</a>
+      <a class="btn btn-secondary m-4 px-4" [routerLink]="['/cities', stadt.id+1]"> &gt; </a>
+  </div>
+  <div *ngIf="!stadt">
+      <h1>Leider wurde keine Stadt gefunden</h1>
+      <a class="btn btn-secondary m-4 px-4" [routerLink]="'/cities'">Zurück zur Liste</a>
+  </div>
+</div>
+
+
+<!-- es wird unterschieden, ob die Variable stadt einen Wert hat (ngIf) -->
+<!-- wenn kein Wert ist es undefined, dann wird Leider wurde... angezeigt -->
+<!-- ein Anchorelement (<a>) eingefügt, um wieder zurück zur Liste zu gelangen -->
