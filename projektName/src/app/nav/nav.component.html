@@ -1,0 +1,22 @@
+<nav class="sticky-top navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+      <a class="navbar-brand" routerLink="">Webtech</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+              <a class="nav-link" [routerLink]="''" routerLinkActive="myactive">Home</a>
+              <a class="nav-link" [routerLink]="'login'" routerLinkActive="myactive">Login</a>
+              <a class="nav-link" [routerLink]="'about'" routerLinkActive="myactive">About</a>
+          </div>
+          <!-- CSS-Klasse myactive, Klasse wird aktiviert, wenn Route aktiv ist -->
+          <!-- Attribut routerLinkActive und weisen "myactive" hinzu-->
+          <!-- Das Wort in der Nav Bar wird fett -->
+      </div>
+      </div>
+  </div>
+</nav>
+
+<!-- Routen werden über routerLink aufgerufen -->
