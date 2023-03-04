@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Member = require('./models/members'); //binden Member-Model ein
+const ToDo = require('./models/toDos'); //binden Member-Model ein
 
 /*// eine GET-Anfrage, req = request-Objekt, res = response-Objekt
 router.get('/', async(req, res) => { 
@@ -11,10 +11,10 @@ router.get('/', async(req, res) => {
 
 // CRUD
 // (READ) get all members
-router.get('/members', async(req, res) => {
-    const allMembers = await Member.find(); 
-    console.log(allMembers);
-    res.send(allMembers);
+router.get('/toDos', async(req, res) => {
+    const allToDos = await ToDo.find();
+    console.log(allToDos);
+    res.send(allToDos);
 });
 // find() ist aus MongoDB
 // get ist HTTP-Methode
@@ -28,29 +28,29 @@ router.get('/members', async(req, res) => {
 module.exports = router;
 
 // (CREATE) post one member
-router.post('/members', async(req, res) => {
-    const newMember = new Member({
+router.post('/toDos', async(req, res) => {
+    const newToDo = new ToDo({
         title: req.body.title,
         description: req.body.description,
         completed: Boolean(req.body.completed) // konvertiert String in Boolean
     })
-    await newMember.save();
-    res.send(newMember);
+    await newToDo.save();
+    res.send(newToDo);
 });
 // save()-Fkt. schreibt/speichert Datensatz in die DB
 // Zeile 33-36: Daten werden aus Body des request ausgelesen & mit diesen ein neues Member-Objekt erzeugt
 // Zeile 39: response wird zurückgeschickt
 
 // (READ ONE) get one member via id
-router.get('/members/:id', async(req, res) => {
-    const member = await Member.findOne({ _id: req.params.id });
+router.get('/toDos/:id', async(req, res) => {
+    const toDo = await ToDo.findOne({ _id: req.params.id });
     console.log(req.params);
-    if(member) {
-        res.send(member);
+    if(toDo) {
+        res.send(toDo);
     } else {
         res.status(404);
         res.send({
-            error: "Member does not exist!"
+            error: "ToDo does not exist!"
         });
     }
 })
@@ -64,27 +64,27 @@ router.get('/members/:id', async(req, res) => {
 // existiert er nicht: Statuscode 404 & Error-Nachricht
 
 // update one member
-router.patch('/members/:id', async(req, res) => {
+router.patch('/toDos/:id', async(req, res) => {
     try {
-        const member = await Member.findOne({ _id: req.params.id })
+        const toDo = await ToDo.findOne({ _id: req.params.id })
 
         if (req.body.title) {
-            member.title = req.body.title
+            toDo.title = req.body.title
         }
 
         if (req.body.description) {
-            member.description = req.body.description
+            toDo.description = req.body.description
         }
 
         if (req.body.completed) {
-            member.completed = req.body.completed
+            toDo.completed = req.body.completed
         }
 
-        await Member.updateOne({ _id: req.params.id }, member);
-        res.send(member)
+        await ToDo.updateOne({ _id: req.params.id }, toDo);
+        res.send(toDo)
     } catch {
         res.status(404)
-        res.send({ error: "Member does not exist!" })
+        res.send({ error: "ToDo does not exist!" })
     }
 });
 // HTTP-Anfragemethode Patch
@@ -94,13 +94,13 @@ router.patch('/members/:id', async(req, res) => {
 // die zu ändernden Werte werden als ein JSON dem body des request-Objektes übergeben
 
 // delete one member via id
-router.delete('/members/:id', async(req, res) => {
+router.delete('/toDos/:id', async(req, res) => {
     try {
-        await Member.deleteOne({ _id: req.params.id })
+        await ToDo.deleteOne({ _id: req.params.id })
         res.status(204).send()
     } catch {
         res.status(404)
-        res.send({ error: "Member does not exist!" })
+        res.send({ error: "ToDo does not exist!" })
     }
 });
 // Datensatz wird über _id ermittelt und dafür erneut die parametrisierte URL ausgelesen
