@@ -7,30 +7,35 @@ body {
   background-size: cover;
 }
 
-#text1 {
+.font-class{
+  font-size: 40px;
   font-family: cursive;
-  position: absolute;
+  position:fixed;
+}
+
+#text1 {
   left: 10px;
   right: 10px;
   bottom: 33%;
+  color: rgb(3, 95, 17);
+  text-decoration: none;
 }
 
 #text2 {
-  font-family: cursive;
-  position: absolute;
   left: 10px;
   right: 10px;
   bottom: 25%;
+  color: rgb(3, 95, 17);
+  text-decoration: none;
 }
 
 #text3 {
-  font-family: cursive;
-  position: absolute;
   left: 10px;
   right: 10px;
   bottom: 17%;
+  color: rgb(3, 95, 17);
+  text-decoration: none;
 }
-
 
 /** RWD **/
 /* Hintergrundbild für Mobilgeräte */
