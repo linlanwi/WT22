@@ -3,28 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
 import { NavComponent } from './nav/nav.component';
-import { MainComponent } from './main/main.component';
-import { LeftComponent } from './main/left/left.component';
-import { RightComponent } from './main/right/right.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { FooterComponent } from './footer/footer.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MytasklistComponent } from './mytasklist/mytasklist.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     NavComponent,
-    MainComponent,
-    LeftComponent,
-    RightComponent
+    HomeComponent,
+    LoginComponent,
+    FooterComponent,
+    MytasklistComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-// jede Komponente wird in der app.module.ts der gesamten Anwendung bekannt gemacht

@@ -1,8 +1,7 @@
-<app-header></app-header> <!-- in den Elementselektor wird HTML-Code aus header.component.html geladen -->
-<app-nav></app-nav>
-<h1>This is app</h1>
-<app-main></app-main>
+<app-nav></app-nav> <!-- Komponentenselektor, bindet die Komponente ein -->
 <router-outlet></router-outlet>
+<app-footer></app-footer> <!-- Komponentenselektor -->
 
-<!-- View => dargestellter Bereich der Komponente, also das was man im Browser sieht -->
-<!-- header und nav sind Kindkomponenten von app -->
+
+<!-- Oben die Nav-Komponente, unten die Footer-Komponente -->
+<!-- Komponentenselektor router-outlet, an dessen Stelle wird die Komponente eingesetzt, die wir durch das Routing ausgewählt haben -->
