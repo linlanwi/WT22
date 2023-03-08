@@ -1,5 +1,31 @@
-<main class="d-flex align-items-center min-vh-100">
-  <div class="container text-center">
-      Ihre To-Dos:
+<div class="container mt-3">
+  <h3 class="m-3">Alle ToDos</h3>
+  <div class="table-responsive">
+    <table class="m-3 table table-striped table-hover">
+      <caption>Alle <code>todos</code></caption>
+      <thead>
+        <tr>
+          <th scope="col ">Nr</th>
+          <th scope="col ">Aufgabe</th>
+          <th scope="col ">Beschreibung</th>
+          <th scope="col ">Fälligkeitsdatum</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let todo of todos; let i=index; ">
+          <td>{{ i+1 }}</td>
+          <td>{{ todo.aufgabe }}</td>
+          <td>{{ todo.beschreibung }}</td>
+          <td>{{ todo.frist }}</td>
+          <td>
+            <a [routerLink]="['/todo', todo._id]"> <span class=" bi bi-pencil-square px-5 "></span></a>
+            <span (click)="delete(todo._id)" class=" bi bi-trash px-5 "></span>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
   </div>
-</main>
+</div>
+
+<!-- Zeile 21 definieren wir einen Routerlink unter Verwendung der _id von todo. Es entsteht der Aufruf der Route /todo/:id, wobei für die :id die entsprechende _id von todo eingesetzt wird -->

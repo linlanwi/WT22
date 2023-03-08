@@ -1,3 +1,5 @@
+import { DetailComponent } from './detail/detail.component';
+import { CreateComponent } from './create/create.component';
 import { RegisterComponent } from './register/register.component';
 import { MytasklistComponent } from './mytasklist/mytasklist.component';
 import { HomeComponent } from './home/home.component';
@@ -26,6 +28,14 @@ const routes: Routes = [
   {
     path: "register",
     component: RegisterComponent
+  },
+  {
+    path: "todo",
+    component: CreateComponent
+  },
+  {
+    path: "todo/:id",
+    component: DetailComponent
   }
 ];
 // pathMatch: full gibt an, dass diese route nur aufgerufen wird, danach nichts weiter in der URL folgt
