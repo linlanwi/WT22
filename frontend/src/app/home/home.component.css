@@ -1,5 +1,4 @@
 /** CSS-Eigenschaften für die Home-Komponente **/
-
 body {
   background: url('../../assets/hintergrund.jpg') no-repeat center center fixed;
   background-size: cover;
@@ -35,7 +34,7 @@ body {
   text-decoration: none;
 }
 
-/* RWD für Desktop & Tablets */
+/* ---------- RWD für Desktop ------------- */
 @media only screen and (min-width:1024px) {
   #text1 {
     bottom: 32%;
@@ -51,6 +50,8 @@ body {
     font-size: 42px;
   }
 }
+
+/* RWD für Tablet (IPad) */
 @media only screen and (device-width: 1366px) and (device-height: 1024px) {
   #text1 {
     top: 60%;
@@ -67,7 +68,8 @@ body {
   }
 }
 
-/** -------------- RWD für Smartphones -------------------- **/
+/* -------------- RWD für Smartphones -------------------- */
+/* Wir haben für jede Smartphone Marke nur ein Gerät ausgewählt, theoretisch kann man das für jede Art von Handy anpassen */
 /* Galaxy Note 20: 412 x 915 */
 @media only screen and (device-width: 412px) and (device-height: 915px) {
   #text1 {
@@ -84,6 +86,7 @@ body {
     font-size: 28px;
   }
 }
+/* hier das gleiche Gerät in Querformat */
 @media only screen and (device-width: 915px) and (device-height: 412px) {
   #text1 {
     top: 59%;
@@ -116,6 +119,7 @@ body {
     font-size: 28px;
   }
 }
+/* gleiches Gerät in Querformat */
 @media only screen and (device-width: 812px) and (device-height: 375px) {
   #text1 {
     top: 59%;
@@ -133,7 +137,6 @@ body {
 }
 
 /* ----------- RWD für den Hintergrund ------------- */
-
 /* Hintergrundbild für Tablets */
 @media (min-width: 768px) and (max-width: 1024px) {
   body {
@@ -159,10 +162,10 @@ body {
   }
 }
 
-/**
+/*
 Cover-Eigenschaft sorgt dafür, dass das Hintergrundbild den gesamten Hintergrund abdeckt, unabhängig von der Größe des Bildschirms.
 Das bedeutet, dass das Bild möglicherweise nicht in voller Größe auf allen Bildschirmen zu sehen ist
-**/
+*/
 
 
 
