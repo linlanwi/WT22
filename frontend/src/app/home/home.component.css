@@ -35,19 +35,35 @@ body {
 }
 
 /* ---------- RWD für Desktop ------------- */
-@media only screen and (min-width:1024px) {
+@media only screen and (min-width:1401px) {
   #text1 {
-    bottom: 32%;
+    bottom: 31%;
   }
   #text2 {
-    bottom: 25%;
+    bottom: 24%;
   }
   #text3 {
-    bottom: 17%;
+    bottom: 16%;
   }
 
   .font-class{
-    font-size: 42px;
+    font-size: 40px;
+  }
+}
+
+@media only screen and (max-width:1400px) {
+  #text1 {
+    bottom: 34%;
+  }
+  #text2 {
+    bottom: 27%;
+  }
+  #text3 {
+    bottom: 20%;
+  }
+
+  .font-class{
+    font-size: 30px;
   }
 }
 
