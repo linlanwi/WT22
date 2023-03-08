@@ -7,7 +7,7 @@ body {
 
 .font-class{
   font-size: 40px;
-  font-family: cursive;
+  font-family: "Comic Sans MS";
   position:fixed;
 }
 
@@ -51,6 +51,21 @@ body {
     font-size: 42px;
   }
 }
+@media only screen and (device-width: 1366px) and (device-height: 1024px) {
+  #text1 {
+    top: 60%;
+  }
+  #text2 {
+    top: 67%;
+  }
+  #text3 {
+    top: 74%;
+  }
+
+  .font-class{
+    font-size: 35px;
+  }
+}
 
 /** -------------- RWD für Smartphones -------------------- **/
 /* Galaxy Note 20: 412 x 915 */
@@ -69,68 +84,15 @@ body {
     font-size: 28px;
   }
 }
-
-/* Galaxy Note Ultra 412 x 883 */
-@media only screen and (device-width: 412px) and (device-height: 883px) {
+@media only screen and (device-width: 915px) and (device-height: 412px) {
   #text1 {
-    bottom: 37%;
+    top: 59%;
   }
   #text2 {
-    bottom: 31%;
+    top: 68%;
   }
   #text3 {
-    bottom: 25%;
-  }
-
-  .font-class{
-    font-size: 28px;
-  }
-}
-
-/* Galaxy S10/S10+ */
-@media only screen and (device-width: 360px) and (device-height: 760px) {
-  #text1 {
-    bottom: 35%;
-  }
-  #text2 {
-    bottom: 28%;
-  }
-  #text3 {
-    bottom: 20%;
-  }
-
-  .font-class{
-    font-size: 28px;
-  }
-}
-
-/* Galaxy S20 (gilt auch für Galaxy S20 Ultra) */
-@media only screen and (device-width: 360px) and (device-height: 800px) {
-  #text1 {
-    bottom: 35%;
-  }
-  #text2 {
-    bottom: 28%;
-  }
-  #text3 {
-    bottom: 21%;
-  }
-
-  .font-class{
-    font-size: 28px;
-  }
-}
-
-/* Galaxy S20+ (gilt auch für Galaxy S20 Ultra) */
-@media only screen and (device-width: 384px) and (device-height: 854px) {
-  #text1 {
-    bottom: 36%;
-  }
-  #text2 {
-    bottom: 30%;
-  }
-  #text3 {
-    bottom: 24%;
+    top: 77%;
   }
 
   .font-class{
@@ -154,87 +116,23 @@ body {
     font-size: 28px;
   }
 }
-
-/* IPhone 11 Pro Max */
-@media only screen and (device-width: 414px) and (device-height: 896px) {
+@media only screen and (device-width: 812px) and (device-height: 375px) {
   #text1 {
-    bottom: 37%;
+    top: 59%;
   }
   #text2 {
-    bottom: 31%;
+    top: 68%;
   }
   #text3 {
-    bottom: 25%;
+    top: 77%;
   }
 
   .font-class{
-    font-size: 28px;
+    font-size: 23px;
   }
 }
-
-/* IPhone 12/13 (gilt auch für IPhone 12/13 mini) */
-@media only screen and (device-width: 390px) and (device-height: 844px) {
-  #text1 {
-    bottom: 36%;
-  }
-  #text2 {
-    bottom: 30%;
-  }
-  #text3 {
-    bottom: 23%;
-  }
-
-  .font-class{
-    font-size: 28px;
-  }
-}
-
-/* IPhone 12/13 Pro Max */
-@media only screen and (device-width: 428px) and (device-height: 926px) {
-  #text1 {
-    bottom: 37%;
-  }
-  #text2 {
-    bottom: 31%;
-  }
-  #text3 {
-    bottom: 25%;
-  }
-
-  .font-class{
-    font-size: 28px;
-  }
-}
-
-/* IPhone SE 2nd Gen */
-@media only screen and (device-width: 375px) and (device-height: 667px) {
-  #text1 {
-    bottom: 32%;
-  }
-  #text2 {
-    bottom: 24%;
-  }
-  #text3 {
-    bottom: 16%;
-  }
-
-  .font-class{
-    font-size: 28px;
-  }
-}
-
-
-
-
 
 /* ----------- RWD für den Hintergrund ------------- */
-/* Hintergrundbild für Mobilgeräte */
-@media (max-width: 768px) {
-  body {
-    background-image: url('../../assets/hintergrund.jpg');
-    background-size: 1000px 800px;
-  }
-}
 
 /* Hintergrundbild für Tablets */
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -266,14 +164,5 @@ Cover-Eigenschaft sorgt dafür, dass das Hintergrundbild den gesamten Hintergrun
 Das bedeutet, dass das Bild möglicherweise nicht in voller Größe auf allen Bildschirmen zu sehen ist
 **/
 
-/* RWD für Nav Bar */
-.nav {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-}
 
-.mobile-nav {
-  display: flex;
-  flex-wrap: wrap;
-}
 
