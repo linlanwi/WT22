@@ -5,28 +5,34 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
-import { HomeComponent } from './home/home.component';
 import { TableComponent } from './table/table.component';
-import { CreateComponent } from './create/create.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 import { DetailComponent } from './detail/detail.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CreateComponent } from './create/create.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     FooterComponent,
-    HomeComponent,
     TableComponent,
-    CreateComponent,
-    DetailComponent
+    HomeComponent,
+    DetailComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+// hier wurde das HttpClientModule hinzugefügt (es enthält einen Service HttpClient)
+// Service stellt alle HTTP-Anfragemethoden (GET,POST us.) als Funktionen bereit
