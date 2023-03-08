@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BackendService } from '../shared/backend.service';
 import { Member } from '../shared/member';
 
@@ -8,9 +9,12 @@ import { Member } from '../shared/member';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-  members!: Member[];
+  members: Member[] = [];
+  deleted = false; // um Nachricht anzeigen zu lassen, dass der Datensatz gelöscht wurde, nutzen wir diese Eigenschaft
+  // ist der Wert false, wird die Tabelle angezeigt, ist er true, wird die Löschnachricht angezeigt
+  // In der Löschnachricht ist ein Button, dessen Klickereignis die Funktion reload() aufruft
 
-  constructor(private bs: BackendService) { }
+  constructor(private bs: BackendService, private router: Router) { }
 
   ngOnInit(): void {
     this.readAll();
@@ -32,8 +36,32 @@ export class TableComponent implements OnInit {
   }
 
   delete(id: string): void {
-    console.log("id :" ,id );
+    this.bs.deleteOne(id).subscribe(
+      {
+        next: (response: any) => {
+          console.log('response : ', response);
+          if(response.status == 204){
+                  console.log(response.status);
+                  this.reload(true);
+                } else {
+                  console.log(response.status);
+                  console.log(response.error);
+                  this.reload(false);
+                }
+        },
+        error: (err) => console.log(err),
+        complete: () => console.log('deleteOne() completed')
+    });
+    // reload() wird die Tabelle neu geladen
+    // alle Einträge aus der Datenbank mit readAll() geholt, damit man sieht, dass der Datensatz gelöscht wurde
   }
+
+  reload(deleted: boolean)
+  {
+    this.deleted = deleted;
+    this.readAll();
+    this.router.navigateByUrl('/table');
+}
 }
 
 // BackendService mittels dependency injection eingebunden
