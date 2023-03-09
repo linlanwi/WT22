@@ -27,7 +27,7 @@ router.get('/todos', async(req, res) => {
 
 module.exports = router;
 
-// (CREATE) post one member
+// (CREATE) post one todo
 router.post('/todos', async(req, res) => {
     const newTodo = new Todo({
         aufgabe: req.body.aufgabe,
