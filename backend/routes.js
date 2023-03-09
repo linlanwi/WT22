@@ -1,29 +1,25 @@
-const express = require('express');
+const express = require('express'); // const für Deklaration von Konstanten
 const router = express.Router();
-const Todo = require('./models/todos'); //binden Member-Model ein
+const Todo = require('./models/todos'); // binden Todo-Model ein
 
-/*// eine GET-Anfrage, req = request-Objekt, res = response-Objekt
-router.get('/', async(req, res) => { 
-    // angenommen da stünde "/fiw", dann wäre es localhost:3000/fiw
-    // res wird durch die Anfrage erzeugt
-    res.send({ message: "Hello FIW!" }); // senden ein JavaScript-Objekt zurück, enthält Schlüssel message
-});*/
-
-// CRUD
+// -------------------- CRUD --------------------
 // (READ) get all members
 router.get('/todos', async(req, res) => {
     const allTodos = await Todo.find(); 
     console.log(allTodos);
     res.send(allTodos);
 });
-// find() ist aus MongoDB
-// get ist HTTP-Methode
+// Z.7: get ist eine HTTP-Methode
+// Z.8: find()-Fkt. ist aus MongoDB
 
-// Route ist localhost:3000/members
-// anonyme Callback Fkt. mit async & await
-// find()-Fkt. ist ein sog. Promise, wird asynchron ausgeführt, irgendwann ist ein Ergebnis verfügbar oder gibt einen Fehler zurück
-// await -> auf eines der beiden Fälle wird gewartet
-// nur async deklarierte Fkt. darf await Aufruf enthalten
+// ------------ Async & Await anhand get all erklärt ------------ 
+// asnyc & await sind asynchrone Operationen bei der Datenbankabfrage
+// der 2. Parameter der router.get-Fkt. ist eine Fkt., die ausgeführt wird, wenn ein Client eine Anforderung an den Pfad sendet
+// Fkt. mit dem Schlüsselwort async gekennzeichnet, was bedeutet, dass sie asynchron ist.
+// innerhalb ruft die Route Todo.find()-Fkt., um alle Todos in der DB zu suchen
+// da Fkt. asynchron ist, gibt sie ein Promise zurück
+// Um auf das Ergebnis des Versprechens zu warten, verwenden wir await, um die Ausführung der Fkt. zu unterbrechen, bis das Versprechen erfüllt ist
+// Wert wird allTodos erst zugewiesen, sobald Promise aufgelöst wurde
 
 module.exports = router;
 
@@ -34,15 +30,13 @@ router.post('/todos', async(req, res) => {
         beschreibung: req.body.beschreibung,
         frist: req.body.frist
     })
-    await newTodo.save();
+    await newTodo.save();   // save()-Fkt. schreibt/speichert Datensatz in die DB
     res.send(newTodo);
 });
-// save()-Fkt. schreibt/speichert Datensatz in die DB
-// Zeile 33-36: Daten werden aus Body des request ausgelesen & mit diesen ein neues Member-Objekt erzeugt
-// Zeile 39: response wird zurückgeschickt
+// Z.29-31: Daten werden aus Body des request ausgelesen & mit diesen ein neues Todo-Objekt erzeugt
+// Z.34: response wird zurückgeschickt
 
 // (READ ONE) get one member via id
-// get one member - Read 
 router.get('/todos/:id', async(req, res) => {
     try {
         const todo = await Todo.find({ _id: req.params.id });
@@ -55,16 +49,11 @@ router.get('/todos/:id', async(req, res) => {
         })
     }
 })
-// id wird aus URL des Endpunktes ausgelesen
-// Datensatz der id wird im JSON zurückgegeben
-// parametrisierte Routen werden per : & Namen des Parameters erstellt (hier id)
-// um Wert des Parameters id aus der Parameterliste auszulesen wird params verwendet
-
-// findOne() in MongoDB: Zum Finden eines einzelnen Datensatzes
+// Z.42: um Wert (also die Daten der Todo) des Parameters id aus der Parameterliste auszulesen wird params verwendet
 // existiert id, dann wird dieser in response zurückgesendet
 // existiert er nicht: Statuscode 404 & Error-Nachricht
 
-// update one member
+// (UPDATE) update one member
 router.patch('/todos/:id', async(req, res) => {
     try {
         const todo = await Todo.findOne({ _id: req.params.id })
@@ -88,13 +77,12 @@ router.patch('/todos/:id', async(req, res) => {
         res.send({ error: "ToDo does not exist!" })
     }
 });
-// HTTP-Anfragemethode Patch
-// MongoDB-Fkt: updateOne() -> erwartet als ersten Parameter einen filter
-// filter: d.h Werte nach denen nach einem Datensatz gesucht werden soll, hier die id_
-// Der zweite Parameter der updateOne()-Funktion sind die zu ändernden Werte für diesen Datensatz
+// für Update HTTP-Anfragemethode Patch
+// Z.73: updateOne() -> erwartet als ersten Parameter einen filter, erhalten ein Todo durch die entsprechene id
+// Z.73: zweiter Parameter der updateOne()-Funktion sind die zu ändernden Werte für diesen Datensatz
 // die zu ändernden Werte werden als ein JSON dem body des request-Objektes übergeben
 
-// delete one member via id
+// (DELETE) delete one member via id
 router.delete('/todos/:id', async(req, res) => {
     try {
         await Todo.deleteOne({ _id: req.params.id })

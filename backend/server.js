@@ -1,11 +1,13 @@
 const express = require('express'); // importieren Express
 const cors = require('cors'); // Cross-origin resource sharing
-const routes = require('./routes'); // servers.js wird eingebunden
+const routes = require('./routes'); // routes.js wird eingebunden
 const mongoose = require('mongoose'); // um sich in Node.js mit der MongoDB zu verbinden
-mongoose.set('strictQuery', false);
-const app = express(); // erzeugen ein express Objekt, speichern dieses in app
+mongoose.set('strictQuery', false); // Vorbereitung auf Mongoose-update, wurde in der bash vorgeschlagen
+const app = express(); 
 const PORT = 3000; // legen die Portnummer fest
-require('dotenv').config(); // importiert dotenv-Paket (für sicheren Zugang)
+
+require('dotenv').config(); 
+// importiert dotenv-Paket (für sicheren Zugang, speichert zugangssichere Daten)
 // config()-Funktion liest die .env-Datei ein
 
 app.use(express.json()); // alle JavaScript-Objekte in der response nach JSON umwandeln
@@ -13,11 +15,9 @@ app.use(express.json()); // alle JavaScript-Objekte in der response nach JSON um
 // enable cors for all requests
 app.use(cors());
 
-app.use('/', routes); // verwendet server.js; "erstellt" localhost:3000/ 
+app.use('/', routes); 
 
-// connect to mongoDB
-// mongoose.connect(process.env.DB_CONNECTION, { dbName: process.env.DATABASE }); // greifen auf den Wert von DB_CONNECTION & DATABASE zu
-// auf die in der .env-Datei hinterlegten Schlüssel-Werte-Paare, kann mittels process.env.<Schlüssel> zugegegriffen werden
+// Verbindung zu MongoDB
 mongoose.connect('mongodb://127.0.0.1:27017/todos', { dbName: 'todos' });
 const db = mongoose.connection;
 db.on('error', err => {
@@ -26,9 +26,9 @@ db.on('error', err => {
 db.once('open', () => {
     console.log('connected to DB');
 });
-// Methode once gibt an, dass die Verbindung nur einmal geöffnet wird und dass der Server erst bei erfolgreicher Verbindung gestartet wird
+// Methode once() gibt an, dass die Verbindung nur einmal geöffnet wird & dass der Server erst bei erfolgreicher Verbindung gestartet wird
 
-// Zeile 11-17: Aufruf listen()-Funktion startet den Webserver
+
 app.listen(PORT, (error) => {
     if (error) {
         console.log(error);
@@ -36,10 +36,4 @@ app.listen(PORT, (error) => {
         console.log(`Server started and listening on port ${PORT} ... `); // Syntax in template literal, also backticks
     }
 });
-
-
-// ---- Zusatz aus dem Skript ----
-// app.listen([port[, host[, backlog]]][, callback])
-// erster Parameter Port-Nr, zweiter Parameter anonyme Funktion => callback
-// anonyme Funktion wird durch listen() aufgerufen
-// im Fehlerfall wird der anonymen Fkt. ein error-Objekt übergeben
+// Aufruf listen()-Fkt. startet den Webserver
