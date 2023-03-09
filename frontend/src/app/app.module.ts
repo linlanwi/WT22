@@ -1,18 +1,21 @@
+// in app.module importieren wir alle notwendigen Module für die Anwendung
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { MytasklistComponent } from './mytasklist/mytasklist.component';
-import { RegisterComponent } from './register/register.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 import { CreateComponent } from './create/create.component';
 import { DetailComponent } from './detail/detail.component';
-import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -38,3 +42,4 @@ import { HttpClientModule } from '@angular/common/http';
 export class AppModule { }
 
 // HttpClientModule enthält einen Service HttpClient, der alle HTTP-Anfragemethoden, also GET, POST, PUT, PATCH, DELETE usw. als Funktionen bereitstellt
+// ReactiveFromsModule ist für Formulare

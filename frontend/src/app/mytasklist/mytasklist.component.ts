@@ -15,6 +15,7 @@ export class MytasklistComponent implements OnInit {
   ngOnInit(): void {
     this.readAll();
   }
+  /* beim Erstellen der Komponente ngOnInit()) wird die Variable todos mit allen Daten aus der Datenbank befüllt */
 
   readAll(): void {
     this.bs.getAll().subscribe(
@@ -34,14 +35,11 @@ export class MytasklistComponent implements OnInit {
   }
 }
 
-// ----------- Allgemeines aus dem Skript -----------------
 // hier wird die getAll() Fkt. vom BackendService genutzt
-// wir binden den BackendService mittels dependency injection in unsere Komponente ein
-// getAll() wird nur durch subscribe() aufgerufen
-// subscribe()-Funktion "holt" das Observer-Objekt, welches drei sogenannte callback-Funktionen definiert: next, error und complete
-// nur next erforderlich, da erhalten wir die response (verwenden Arrow-Funktion, die hier response heißt)
 
 // ----------------- Code Erklärung ----------------------
-// beim Erstellen der Komponente ngOnInit()) wird die Variable todos mit allen Daten aus der Datenbank befüllt
-// Dieses Array wird in der mytasklist.component.html ausgelesen
-// Wir verwenden dazu wieder die *ngFor-Direktive
+// wir binden den BackendService mittels dependency injection in unsere Komponente ein
+// in readAll wird getAll() vom Backendservice aufgerufen, wird nur durch subscribe() aufgerufen
+
+// subscribe()-Funktion "holt" das Observer-Objekt, welches drei sogenannte callback-Funktionen definiert: next, error und complete
+// nur next erforderlich, da erhalten wir die response (das angefragte Objekt) (verwenden Arrow-Funktion, die hier response heißt)

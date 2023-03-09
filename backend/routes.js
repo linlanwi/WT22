@@ -30,9 +30,9 @@ module.exports = router;
 // (CREATE) post one member
 router.post('/todos', async(req, res) => {
     const newTodo = new Todo({
-        title: req.body.title,
-        description: req.body.description,
-        completed: Boolean(req.body.completed) // konvertiert String in Boolean
+        aufgabe: req.body.aufgabe,
+        beschreibung: req.body.beschreibung,
+        frist: req.body.frist
     })
     await newTodo.save();
     res.send(newTodo);
@@ -42,16 +42,17 @@ router.post('/todos', async(req, res) => {
 // Zeile 39: response wird zurückgeschickt
 
 // (READ ONE) get one member via id
+// get one member - Read 
 router.get('/todos/:id', async(req, res) => {
-    const todo = await Todo.findOne({ _id: req.params.id });
-    console.log(req.params);
-    if(todo) {
-        res.send(todo);
-    } else {
+    try {
+        const todo = await Todo.find({ _id: req.params.id });
+        console.log(req.params);
+        res.send(todo[0]);
+    } catch {
         res.status(404);
         res.send({
-            error: "ToDo does not exist!"
-        });
+            error: 'ToDo does not exist'
+        })
     }
 })
 // id wird aus URL des Endpunktes ausgelesen
@@ -68,16 +69,16 @@ router.patch('/todos/:id', async(req, res) => {
     try {
         const todo = await Todo.findOne({ _id: req.params.id })
 
-        if (req.body.title) {
-            todo.title = req.body.title
+        if (req.body.aufgabe) {
+            todo.aufgabe = req.body.aufgabe
         }
 
-        if (req.body.description) {
-            todo.description = req.body.description
+        if (req.body.beschreibung) {
+            todo.beschreibung = req.body.beschreibung
         }
 
-        if (req.body.completed) {
-            todo.completed = req.body.completed
+        if (req.body.frist) {
+            todo.frist = req.body.frist
         }
 
         await Todo.updateOne({ _id: req.params.id }, todo);

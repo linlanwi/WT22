@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const schema = new mongoose.Schema({
-    title: String,
-    description: String,
-    completed: Boolean
+    aufgabe: String,
+    beschreibung: String,
+    frist : String
 });
 
 module.exports = mongoose.model('Todo', schema); // Datenmodell heißt Member
