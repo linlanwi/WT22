@@ -18,7 +18,7 @@ export class DetailComponent implements OnInit {
     beschreibungControl: new FormControl<string>(''),
     fristControl: new FormControl<string>(''),
 });
-// form zeigt auf das Formular (bestehend aus FormControl-Elementen, erzeugen diese Elemente in den Z. 16-19 & mit String typisiert)
+// form zeigt auf das Formular (bestehend aus FormControl-Elementen, erzeugen diese Elemente in den Z. 16-19 (mit String typisiert)
 
   constructor(
     private route: ActivatedRoute,
@@ -31,7 +31,7 @@ export class DetailComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id') || '';
     this.readOne(this.id);
   }
-  // beim Initialisieren der Komponente wird todo mit passenden Eintrag aus der DB befüllt
+  // ngOnInit beim Initialisieren der Komponente wird todo mit passenden Eintrag aus der DB befüllt
 
   readOne(id: string): void {
       this.bs.getOne(id).subscribe(
@@ -48,10 +48,11 @@ export class DetailComponent implements OnInit {
         },
         error: (err) => console.log(err),
         complete: () => console.log('getOne() completed')
-      }); // speichern die Daten der todo
-  } // Z. 39-44 Eingabefeldern werden Werte zugewiesen
-  // Werte von todo werden durch getOne(id)-Fkt. entnommen
-  // patchValue()-Fkt. kann allen oder bestimmten FormControl-Elementen einen Wert zuweisen
+      });
+  }
+  // Z.37: Werte von todo werden durch getOne(id)-Fkt. entnommen
+  // Z.42-45: Eingabefeldern werden Werte zugewiesen
+  // Z.42: patchValue()-Fkt. kann allen oder bestimmten FormControl-Elementen einen Wert zuweisen
   // ?: ist ein safe navigation operator (vermeidet das Zugreifen auf einen Wert, der noch nicht existiert)
 
  update(): void {
@@ -72,17 +73,16 @@ export class DetailComponent implements OnInit {
       }
       );
     this.router.navigateByUrl('/mytasklist');
-  } // zunächst alle Werte des Formulars ausgelesen & in this.todo gespeichert
-  // dann update()-Fkt. des BackendService aufgerufen und this.id + this.todo übergeben
-  // am ende wird wieder die mytasklist Komponente aufgerufen -> navigatebyUrl()-Fkt. des Router-Services
+  }
+  // Z.59-60: zunächst alle Werte des Formulars ausgelesen & in this.todo gespeichert
+  // Z.63: dann update()-Fkt. des BackendService aufgerufen und this.id + this.todo übergeben
+  // Z.75: am ende wird wieder die mytasklist Komponente aufgerufen -> navigatebyUrl()-Fkt. des Router-Services
+
   cancel(): void {
     this.location.back();
   }
 }
 
+// ------------------- Zusatz -------------------
+// getOne(id) des BackendService gibt Observable zurück, welches die subscribe()-Fkt. nutzen muss
 
-// getOne(id) des BackendService gibt Observable zurück, welches subscribe()-Fkt. nutzen muss
-// Komponente soll Datensatz von todo ändern
-
-// beim aktualisieren button: Endpunkt PATCH /members/:id der REST-API angesprochen, wobei :id den Wert der _id des aktuell bearbeiteten Datensatzes erhält
-// und die Werte aus dem Formular im body des request-Objektes übergeben werden

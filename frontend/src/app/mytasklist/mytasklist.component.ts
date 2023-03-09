@@ -10,7 +10,7 @@ import { Todo } from '../shared/todo';
 export class MytasklistComponent implements OnInit {
   todos!: Todo[];
 
-  constructor(private bs: BackendService) { }
+  constructor(private bs: BackendService) { }   // wir binden den BackendService mittels dependency injection in unsere Komponente ein
 
   ngOnInit(): void {
     this.readAll();
@@ -34,12 +34,6 @@ export class MytasklistComponent implements OnInit {
     console.log("id :" ,id );
   }
 }
-
-// hier wird die getAll() Fkt. vom BackendService genutzt
-
-// ----------------- Code Erklärung ----------------------
-// wir binden den BackendService mittels dependency injection in unsere Komponente ein
-// in readAll wird getAll() vom Backendservice aufgerufen, wird nur durch subscribe() aufgerufen
-
-// subscribe()-Funktion "holt" das Observer-Objekt, welches drei sogenannte callback-Funktionen definiert: next, error und complete
+// Z.20: in readAll wird getAll() vom Backendservice aufgerufen (wird aber nur durch subscribe() aufgerufen!)
+// Z. 23-29: subscribe()-Funktion "holt" das Observer-Objekt, welches drei sogenannte callback-Funktionen definiert: next, error und complete
 // nur next erforderlich, da erhalten wir die response (das angefragte Objekt) (verwenden Arrow-Funktion, die hier response heißt)

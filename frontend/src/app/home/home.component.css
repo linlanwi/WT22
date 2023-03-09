@@ -102,7 +102,7 @@ body {
     font-size: 28px;
   }
 }
-/* hier das gleiche Gerät in Querformat */
+/* das gleiche Gerät in Querformat */
 @media only screen and (device-width: 915px) and (device-height: 412px) {
   #text1 {
     top: 59%;
@@ -178,7 +178,7 @@ body {
   }
 }
 
-/*
+/* ---------- Zusatz ----------
 Cover-Eigenschaft sorgt dafür, dass das Hintergrundbild den gesamten Hintergrund abdeckt, unabhängig von der Größe des Bildschirms.
 Das bedeutet, dass das Bild möglicherweise nicht in voller Größe auf allen Bildschirmen zu sehen ist
 */

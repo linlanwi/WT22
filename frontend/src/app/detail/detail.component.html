@@ -2,25 +2,26 @@
   <fieldset class="container  mt-5">
     <legend *ngIf="todo && todo.aufgabe && todo.frist">Aktualisieren von Todo: "{{ todo.aufgabe }}" bis zum "{{ todo.frist }}"</legend>
     <legend *ngIf="todo && (!todo.aufgabe || !todo.frist)">ToDo aktualisieren</legend>
-    <form [formGroup]="form" (ngSubmit)="update()"> <!-- beim Absenden des Fromulars wird update()-Fkt. aufgerufen -->
+    <!-- 1. ngIf wird ausgeführt, wenn todo und die angegeben Eigenschaften defineirt sind -->
+    <form [formGroup]="form" (ngSubmit)="update()"> <!-- beim Absenden des Formulars wird update()-Fkt. aufgerufen -->
       <div class="mb-3 row">
          <label class="col-2 col-form-label" for="aufgabe">Aufgabe</label>
         <div class="col-10">
-          <input type="text" class="form-control" id="aufgabe" placeholder="Aufgabe"
+          <input type="text" class="form-control" id="aufgabe" placeholder="Was möchtest du erledigen? "
           formControlName="aufgabeControl" />
         </div>
       </div>
       <div class="mb-3 row">
         <label class="col-2 col-form-label" for="beschreibung">Beschreibung</label>
         <div class="col-10">
-          <input type="text" class="col-10 form-control" id="beschreibung" placeholder="Beschreibung"
+          <input type="text" class="col-10 form-control" id="beschreibung" placeholder="Erzähl uns mehr!"
           formControlName="beschreibungControl" />
         </div>
       </div>
       <div class="mb-3 row">
         <label class="col-2 col-form-label" for="frist">Fälligkeitsdatum</label>
         <div class="col-10">
-          <input type="text" class="col-10 form-control" id="frist" placeholder="Fälligkeitsdatum" formControlName="fristControl" />
+          <input type="text" class="col-10 form-control" id="frist" placeholder="Bis wann soll das erledigt sein?" formControlName="fristControl" />
         </div>
       </div>
       <div class="row ">

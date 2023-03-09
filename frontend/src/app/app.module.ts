@@ -1,4 +1,4 @@
-// in app.module importieren wir alle notwendigen Module für die Anwendung
+// -------------- in app.module importieren wir alle notwendigen Module für die Anwendung --------------
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -34,12 +34,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule   // ReactiveFromsModule ist für Formulare
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 
-// HttpClientModule enthält einen Service HttpClient, der alle HTTP-Anfragemethoden, also GET, POST, PUT, PATCH, DELETE usw. als Funktionen bereitstellt
-// ReactiveFromsModule ist für Formulare
+// HttpClientModule enthält einen Service HttpClient, der alle HTTP-Anfragemethoden, also GET, POST, usw. als Funktionen bereitstellt
+
