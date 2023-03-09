@@ -29,7 +29,7 @@ export class BackendService {
   }
   // Z.28: mit {observe: 'response'} als 2 Parameter legen wir fest, dass in jedem Fall eine response durch das Observable erzeugt wird
 
-  createOne(data: Todo): Observable<Todo>{
+  create(data: Todo): Observable<Todo>{
     return this.http.post<Todo>(this.baseUrl, data);
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Todo } from '../shared/todo';
 import { BackendService } from '../shared/backend.service';
@@ -15,19 +15,28 @@ export class CreateComponent {
   todos!: Todo[];
   form!: FormGroup;
 
-  constructor(private bs: BackendService, private router: Router,private location: Location) {
+  constructor(private bs: BackendService, private router: Router,private location: Location) {}
 
+  ngOnInit(): void {
+    this.form = new FormGroup({
+      aufgabeControl: new FormControl(''),
+      beschreibungControl: new FormControl(''),
+      fristControl: new FormControl('')
+    });
   }
+  // ngOnInit() wird aufgerufen, wenn die Komponente initialisert wird
+  // hier wird ein FormGroup-Objekt erstellt, das die Formularsteuerelemente definiert (Initialisiert mit Standardwert '')
+  // this.form wird dann in der create()-Fkt. verwendet
 
-  createOne(): void {
-    const values = this.form.value;
+  create(): void {
+    const values = this.form.value; // Werte der Formularsteuerelemente aus FormGroup-Objekt gerufen & in values gespeichert
     const todo: Todo = {
       aufgabe: values.aufgabeControl!,
       beschreibung: values.beschreibungControl!,
       frist: values.fristControl!,
       _id: ''
-    };
-    this.bs.createOne(todo)
+    }; // Verwendung der Werte um neues Todo-Objekt zuerstellen, das an die backendService.create übergeben wird
+    this.bs.create(todo)
       .subscribe({
         next: (response) => {
           console.log(response);
@@ -40,6 +49,18 @@ export class CreateComponent {
       });
     this.router.navigateByUrl('/mytasklist');
   }
+  // Z.39:create()-Fkt. gibt Observable Objekt zurück
+  // Z.40: Observable abonnieren
+  // next, error, complete sind Callback-Funktionen
+  // Z.41: next wird aufgerufen, wenn die BackendService Methode erfolgreich ist
+  // Z.48: complete-Fkt. wird aufgerufen, wenn das Observable vollständig ist (d.h. Datentrom abgeschlossen & liefert keine weiteren Werte)
+  // Z.50: kehrt zu mytasklist zurück
+
+  // -------------- Zusatz --------------
+  // Callback-Funktionen: Funktionen, die wir einer anderen Funktion als Parameter übergeben, um sie später aufzurufen.
+  // Das bedeutet, dass die andere Funktion die Kontrolle an unsere Callback-Funktion übergibt, sobald ein bestimmtes Ereignis eintritt, und wir können dann unsere eigene Logik ausführen, basierend auf dem Ereignis, das eingetreten ist.
+  // Callback-Funktionen werden oft in asynchronen Operationen verwendet, bei denen wir auf eine Antwort warten müssen, bevor wir mit der nächsten Aktion fortfahren können.
+
 
   cancel(): void {
     this.location.back();
