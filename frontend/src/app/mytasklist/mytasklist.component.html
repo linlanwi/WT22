@@ -1,5 +1,6 @@
-<div class="container mt-3"> <!-- "container" und "m-3" deuten darauf, dass der Code das Raster-System des Bootstrap-Frameworks für responsives Layout verwenden -->
-  <h3 class="m-3">Alle ToDos</h3>
+<div *ngIf="!deleted" class="container mt-3"> <!-- "container" und "m-3" deuten darauf, dass der Code das Raster-System des Bootstrap-Frameworks für responsives Layout verwenden -->
+  <h3 class="m-3">Alle ToDos</h3><br>
+  <button type="button" class="btn btn-primary" (click)="klickEvent()" >Neue ToDo</button>
   <div class="table-responsive"> <!-- RWD eingebaut -->
     <table class="m-3 table table-striped table-hover">
       <caption>Alle <code>todos</code></caption>
@@ -28,6 +29,11 @@
 
     </table>
   </div>
+</div>
+
+<div *ngIf="deleted" class=" container mt-3 ">
+  <h3>Datensatz wurde gelöscht!</h3>
+  <button type="button" class="btn btn-secondary" (click)="reload(false)">Zurück zur Tabelle</button>
 </div>
 
 <!-- Z.21: definieren wir einen Routerlink unter Verwendung der _id von todo. Es entsteht der Aufruf der Route /todo/:id, wobei für die :id die entsprechende _id von todo eingesetzt wird -->
