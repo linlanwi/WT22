@@ -66,7 +66,7 @@ export class MytasklistComponent implements OnInit {
   }
   // reload()-Fkt. Tabelle wird neugeladen
 
-  klickEvent() {
+  ClickEvent() {
     this.router.navigate(['/todo']);
   }
 
