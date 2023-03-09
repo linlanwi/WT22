@@ -32,7 +32,25 @@ export class DetailComponent implements OnInit {
     this.readOne(this.id);
   }
   // beim Initialisieren der Komponente wird todo mit passenden Eintrag aus der DB befüllt
-
+/**
+ createOne(id: string): void {
+    this.bs.createOne(id).subscribe(
+      {
+        next: (response: Todo) => {
+          this.todo = response;
+          console.log(this.todo);
+          this.form.patchValue({
+            aufgabeControl: this.todo?.aufgabe,
+            beschreibungControl: this.todo?.beschreibung,
+            fristControl: this.todo?.frist,
+          })
+          return this.todo;
+        },
+        error: (err) => console.log(err),
+        complete: () => console.log('getOne() completed')
+      });
+  }
+*/
   readOne(id: string): void {
       this.bs.getOne(id).subscribe(
       {

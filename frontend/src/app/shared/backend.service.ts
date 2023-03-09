@@ -15,6 +15,9 @@ export class BackendService {
     return this.http.get<Todo[]>(this.baseUrl);
   }
 
+  createOne(id: string, data: Todo): Observable<Todo>{
+    return this.http.post<Todo>(this.baseUrl + '/' + id, data);
+  }
   getOne(id: string): Observable<Todo>{
     return this.http.get<Todo>(this.baseUrl + '/' + id);
   } // ruft Endpunkt GET /todos/id der REST-API des Backends auf
