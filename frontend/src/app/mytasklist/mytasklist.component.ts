@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BackendService } from '../shared/backend.service';
 import { Todo } from '../shared/todo';
+
 
 @Component({
   selector: 'app-mytasklist',
@@ -9,8 +11,9 @@ import { Todo } from '../shared/todo';
 })
 export class MytasklistComponent implements OnInit {
   todos!: Todo[];
+  deleted = false;
 
-  constructor(private bs: BackendService) { }
+  constructor(private bs: BackendService, private router: Router) { }
 
   ngOnInit(): void {
     this.readAll();
@@ -31,8 +34,31 @@ export class MytasklistComponent implements OnInit {
   }
 
   delete(id: string): void {
-    console.log("id :" ,id );
+    this.bs.deleteOne(id).subscribe(
+      {
+        next: (response: any) => {
+          console.log('response : ', response);
+          if(response.status == 204){
+            console.log(response.status);
+            this.reload(true);
+          } else {
+            console.log(response.status);
+            console.log(response.error);
+            this.reload(false);
+          }
+        },
+        error: (err) => console.log(err),
+        complete: () => console.log('deleteOne() completed')
+      });
   }
+
+  reload(deleted: boolean)
+  {
+    this.deleted = deleted;
+    this.readAll();
+    this.router.navigateByUrl('/table');
+  }
+
 }
 
 // hier wird die getAll() Fkt. vom BackendService genutzt

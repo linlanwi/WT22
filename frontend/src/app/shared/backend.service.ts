@@ -23,6 +23,10 @@ export class BackendService {
     return this.http.patch<Todo>(this.baseUrl + '/' + id, data);
   }
   // id und Daten aus Formular werden update()-Fkt. übergeben
+  deleteOne(id: string): Observable<any>{
+    return this.http.delete<any>(this.baseUrl + '/' + id, {observe: 'response'});
+  }
+  //
 }
 
 
