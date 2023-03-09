@@ -2,6 +2,7 @@ const express = require('express'); // importieren Express
 const cors = require('cors'); // Cross-origin resource sharing
 const routes = require('./routes'); // servers.js wird eingebunden
 const mongoose = require('mongoose'); // um sich in Node.js mit der MongoDB zu verbinden
+mongoose.set('strictQuery', false);
 const app = express(); // erzeugen ein express Objekt, speichern dieses in app
 const PORT = 3000; // legen die Portnummer fest
 require('dotenv').config(); // importiert dotenv-Paket (für sicheren Zugang)
