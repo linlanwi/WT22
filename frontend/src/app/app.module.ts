@@ -28,6 +28,10 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { ConfirmComponent } from './register/confirm/confirm.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { UserlistComponent } from './userlist/userlist.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 
 @NgModule({
@@ -41,7 +45,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     RegisterComponent,
     CreateComponent,
     DetailComponent,
-    ConfirmComponent
+    ConfirmComponent,
+    UserlistComponent
 
   ],
   imports: [
@@ -61,7 +66,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatSelectModule,
     MatRadioModule,
     MatCardModule,   // ReactiveFromsModule ist für Formulare
-    MatDialogModule
+    MatDialogModule, MatTableModule, MatPaginatorModule, MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]

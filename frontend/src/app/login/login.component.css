@@ -1,3 +1,12 @@
-main {
-  background-color: rgb(164, 201, 243);
+mat-card {
+  margin: 5% 20%;
 }
+
+.full-width {
+  width: 100%;
+}
+
+mat-card-header {
+  margin-bottom: 3%;
+}
+

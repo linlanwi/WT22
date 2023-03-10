@@ -40,16 +40,19 @@ export class RegisterComponent {
     };
     console.log(this.user)
     this.auth.registerUser(this.user).subscribe({
-        next: (response) => {
-          console.log('response', response)
-          this.openDialog({ headline: "Erfolg", info: "User " + response.username + " registriert!" });
-        },
-        error: (err) => {
-          console.log('error', err.error.error)
-          this.openDialog({ headline: "Fehler", info: "username und/oder E-Mail existiert bereits" });
-        },
-        complete: () => console.log('register completed')
+      next: (response) => {
+        console.log('response', response)
+        this.user = response;
+        this.auth.login(this.user)
+        this.openDialog({ headline: "Erfolg", info: "User " + response.username + " registriert!" });
+      },
+      error: (err) => {
+        console.log('error', err.error.error)
+        this.openDialog({ headline: "Fehler", info: "username und/oder E-Mail existiert bereits" });
+      },
+      complete: () => console.log('register completed')
     });
+
 
   }
 
