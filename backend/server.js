@@ -5,6 +5,7 @@ const mongoose = require('mongoose'); // um sich in Node.js mit der MongoDB zu v
 mongoose.set('strictQuery', false); // Vorbereitung auf Mongoose-update, wurde in der bash vorgeschlagen
 const app = express(); 
 const PORT = 3000; // legen die Portnummer fest
+const userRoutes = require('./routes/users');
 
 require('dotenv').config(); 
 // importiert dotenv-Paket (für sicheren Zugang, speichert zugangssichere Daten)
@@ -14,8 +15,8 @@ app.use(express.json()); // alle JavaScript-Objekte in der response nach JSON um
 
 // enable cors for all requests
 app.use(cors());
-
 app.use('/', routes); 
+app.use('/users', userRoutes);
 
 // Verbindung zu MongoDB
 mongoose.connect('mongodb://127.0.0.1:27017/todos', { dbName: 'todos' });
