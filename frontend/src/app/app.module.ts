@@ -26,7 +26,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
-
+import { ConfirmComponent } from './register/confirm/confirm.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { MatCardModule } from '@angular/material/card';
     MytasklistComponent,
     RegisterComponent,
     CreateComponent,
-    DetailComponent
+    DetailComponent,
+    ConfirmComponent
 
   ],
   imports: [
@@ -58,7 +60,8 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
-    MatCardModule   // ReactiveFromsModule ist für Formulare
+    MatCardModule,   // ReactiveFromsModule ist für Formulare
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
