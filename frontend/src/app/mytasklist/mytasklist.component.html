@@ -1,5 +1,5 @@
 <div *ngIf="!deleted" class="container mt-3"> <!-- "container" und "m-3" deuten darauf, dass der Code das Raster-System des Bootstrap-Frameworks für responsives Layout verwenden -->
-  <h3 class="m-3">Alle ToDos</h3>
+  <h2 class="m-3">Alle ToDos</h2>
   <div class="d-flex justify-content-center my-3">
     <button type="button" class="btn btn-lg btn-outline-primary btn-block w-50 text-center" (click)="ClickEvent()">Neue ToDo erstellen</button>
   </div>
@@ -24,6 +24,7 @@
           <td>{{ todo.frist }}</td>
           <td>
             <a [routerLink]="['/todo', todo._id]"> <span class=" bi bi-pencil-square px-5 "></span></a>
+            <app-detail (updateTable)="readAll()"></app-detail>
             <span (click)="delete(todo._id)" class=" bi bi-trash px-5 "></span>
           </td>
         </tr>
