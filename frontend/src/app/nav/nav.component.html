@@ -1,19 +1,29 @@
-<nav class="sticky-top navbar navbar-expand-lg navbar-light bg-light"> <!-- "navbar-expand-lg" und "sticky-top" sorgen dafür, dass die Navigation auf kleineren Bildschirmen zu einer Hamburger-Schaltfläche zusammengeklappt wird -->
-  <div class="container-fluid"> <!-- "container-fluid" und "navbar-nav" zur Anordnung von Elementen in einem responsiven Raster  -->
-      <a class="navbar-brand" routerLink="">MyTaskList</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-        <a class="nav-link" [routerLink]="''" routerLinkActive="myactive">Home</a>
-        <a class="nav-link" [routerLink]="'mytasklist'" routerLinkActive="myactive">MyTaskList</a>
-        <a class="nav-link" [routerLink]="'login'" routerLinkActive="myactive">Login</a>
-        <a class="nav-link" [routerLink]="'register'" routerLinkActive="myactive">Register</a>
-        <!-- Routen werden über routerLink aufgerufen -->
-        <!-- routerLinkActive ist nur für eigene CSS Klassen, Klasse wird aktiviert, wenn Route aktiv ist -->
-    </div>
-  </div>
- </div>
-</nav>
-
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="''">Home</a>
+      <a mat-list-item [routerLink]="'register'">Register</a>
+      <a mat-list-item [routerLink]="'login'">Login</a>
+      <a mat-list-item [routerLink]="'mytasklist'">Mytasklist</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Nutzerinnenverwaltung</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

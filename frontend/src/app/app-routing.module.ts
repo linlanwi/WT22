@@ -10,6 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: "",
+    title: "Home",
     component: HomeComponent,
     pathMatch: 'full' // pathMatch: full gibt an, dass diese route nur aufgerufen wird, danach nichts weiter in der URL folgt
   },
@@ -19,10 +20,12 @@ const routes: Routes = [
   },
   {
     path: "login",
+    title: "Login",
     component: LoginComponent
   },
   {
     path: "register",
+    title: "Register",
     component: RegisterComponent
   },
   {
