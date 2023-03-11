@@ -32,6 +32,8 @@ import { UserlistComponent } from './userlist/userlist.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { Confirm2Component } from './login/confirm2/confirm2.component';
+import { BlockedComponent } from './blocked/blocked.component';
 
 
 @NgModule({
@@ -46,7 +48,9 @@ import { MatSortModule } from '@angular/material/sort';
     CreateComponent,
     DetailComponent,
     ConfirmComponent,
-    UserlistComponent
+    UserlistComponent,
+    Confirm2Component,
+    BlockedComponent
 
   ],
   imports: [

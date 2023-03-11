@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthguardGuard } from './shared/authguard.guard';
 import { AdminguardGuard } from './shared/adminguard.guard';
 import { UserlistComponent } from './userlist/userlist.component';
+import { BlockedComponent } from './blocked/blocked.component';
 
 const routes: Routes = [
   {
@@ -49,7 +50,13 @@ const routes: Routes = [
     component: UserlistComponent,
     canActivate: [AdminguardGuard]
   },
-  { path: 'userlist',   redirectTo: '/home'}
+  { path: 'userlist',   redirectTo: '/blocked'},
+
+  {
+    path: "blocked",
+    title: "Blocked",
+    component: BlockedComponent
+  },
 ];
 
 @NgModule({

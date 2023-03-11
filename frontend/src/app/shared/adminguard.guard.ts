@@ -17,7 +17,7 @@ export class AdminguardGuard implements CanActivate {
     state: RouterStateSnapshot): boolean | UrlTree {
     return this.auth.isAdmin()
       ? true
-      : this.router.parseUrl('');
+      : this.router.parseUrl('/blocked');
   }
 
 }

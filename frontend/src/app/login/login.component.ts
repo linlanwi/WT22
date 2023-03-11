@@ -2,6 +2,13 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../shared/auth.service';
+import { MatDialog } from '@angular/material/dialog';
+import { Confirm2Component } from './confirm2/confirm2.component';
+
+export interface DialogData {
+  headline: string;
+  info: string;
+}
 
 @Component({
   selector: 'app-login',
@@ -16,7 +23,7 @@ export class LoginComponent {
     password: [null, Validators.required]
   });
 
-  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) {}
+  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router, public dialog: MatDialog) {}
 
   onSubmit(): void {
     const values = this.loginForm.value;
@@ -37,15 +44,21 @@ export class LoginComponent {
               }
             )
           } else {
-            console.log('kein Login - Nutzername und/oder Passwort stimmen nicht')
+            console.log('kein Login - Nutzername und/oder Passwort stimmen nicht');
+            this.openDialog({ headline: "Fehler", info: 'kein Login - Nutzername und/oder Passwort stimmen nicht' });
+
           }
         },
         error: (err) => {
           console.log('login error',err);
+
         },
         complete: () => console.log('login completed')
       }
     )
 
+  }
+  openDialog(data: DialogData) {
+    this.dialog.open(Confirm2Component, { data });
   }
 }

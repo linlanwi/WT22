@@ -24,7 +24,7 @@
           <td>{{ todo.frist }}</td>
           <td>
             <a [routerLink]="['/todo', todo._id]"> <span class=" bi bi-pencil-square px-5 "></span></a>
-            <app-detail (updateTable)="readAll()"></app-detail>
+
             <span (click)="delete(todo._id)" class=" bi bi-trash px-5 "></span>
           </td>
         </tr>
