@@ -3,13 +3,13 @@
                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
                [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
+    <mat-toolbar>Menü</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item [routerLink]="''">Startseite</a>
-      <a mat-list-item [routerLink]="'register'">Registrierung</a>
-      <a mat-list-item [routerLink]="'login'">Login</a>
+      <a mat-list-item [routerLink]="'register'">Registrieren</a>
+      <a mat-list-item [routerLink]="'login'">Einloggen</a>
       <a mat-list-item [routerLink]="'mytasklist'">Meine ToDos</a>
-      <a mat-list-item [routerLink]="'userlist'">Alle Nutzer</a>
+      <a mat-list-item [routerLink]="'userlist'">Alle Nutzerinnen</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -22,7 +22,7 @@
               *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span class="left">Todoodle</span>
+      <span class="left">ToDoodle</span>
       <button *ngIf="!isLoggedIn" mat-icon-button class="right" (click)="callLogin()">
         <mat-icon>login</mat-icon>
       </button>
