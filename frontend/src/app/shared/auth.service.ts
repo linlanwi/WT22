@@ -1,6 +1,7 @@
+// Datei bindet wir das Backend an
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs'; // nutzen Subject für das Einlogg Icon
 import { User } from './user';
 
 @Injectable({
@@ -20,7 +21,7 @@ export class AuthService {
     });
     this.userChange.subscribe((value) => {
       this.user = value
-    });
+    }); // gehört zum subject, um zu erkennen, ob userin eingelogged ist oder nicht
   }
 
   getAllUsers(): Observable<User[]>{
@@ -31,6 +32,7 @@ export class AuthService {
     return this.http.get<User>(this.baseUrl + '/users/' + username);
   }
 
+  // Registrierung
   registerUser(user:User): Observable<any> {
     return this.http.post(this.baseUrl + '/users/register', user);
   }
@@ -38,6 +40,8 @@ export class AuthService {
   loginUser(username: string, password: string ): Observable<any>{
     return this.http.post(this.baseUrl + '/users/login/', { username: username, password: password }, {observe: 'response'});
   }
+  // noch die Option observe: 'response' hinzugefügt wurde, um die gesamte Response zu erhalten und nicht nur den body als json
+  // können dadurch den Status der Response auswerten
 
   isLoggedin(): boolean {
     return this.loggedIn;

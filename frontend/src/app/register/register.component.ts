@@ -43,18 +43,18 @@ export class RegisterComponent {
       next: (response) => {
         console.log('response', response)
         this.user = response;
-        this.auth.login(this.user)
+        this.auth.login(this.user) // rufen die login()-Fkt. des Services auf
         this.openDialog({ headline: "Erfolg", info: "User " + response.username + " registriert!" });
       },
       error: (err) => {
         console.log('error', err.error.error)
-        this.openDialog({ headline: "Fehler", info: "username und/oder E-Mail existiert bereits" });
+        this.openDialog({ headline: "Fehler", info: "Username und/oder E-Mail existiert bereits" });
       },
       complete: () => console.log('register completed')
     });
-
-
   }
+  // next, error etc. sind vom Observer
+  // Z.49: wird aufgerufen, wenn username oder email bereits existieren
 
     openDialog(data: DialogData) {
       this.dialog.open(ConfirmComponent, { data });

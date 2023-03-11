@@ -19,5 +19,8 @@ export class AuthguardGuard implements CanActivate {
       ? true
       : this.router.parseUrl('/login');
   }
-
+  // Guard: nur Zugriff auf bestimmte Komponenten, wenn man eingeogged ist
+  // Z.18: Fkt. gibt bei Aufruf ein true, wenn die Nutzerin eingeloggt ist
+  // isLoggedin()-Fkt. ist aus dem AuthService
+  // Z.19: wenn nieman logged in ist, gibt es ein false und die Weiterleitung zu /login
 }

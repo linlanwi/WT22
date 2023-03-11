@@ -40,12 +40,12 @@ export class LoginComponent {
             this.auth.getOneUser(username!).subscribe(
               (response) => {
                 this.auth.login(response);
-                this.router.navigate(['/home'])
+                this.router.navigate(['/mytasklist'])
               }
             )
           } else {
             console.log('kein Login - Nutzername und/oder Passwort stimmen nicht');
-            this.openDialog({ headline: "Fehler", info: 'kein Login - Nutzername und/oder Passwort stimmen nicht' });
+            this.openDialog({ headline: "Fehler", info: 'Kein Login - Nutzername und/oder Passwort stimmen nicht' });
 
           }
         },
@@ -56,8 +56,9 @@ export class LoginComponent {
         complete: () => console.log('login completed')
       }
     )
-
   }
+  // Wenn das Login erfolgreich war, wird direkt die mytasklist-Komponente aufgerufen
+
   openDialog(data: DialogData) {
     this.dialog.open(Confirm2Component, { data });
   }

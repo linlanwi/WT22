@@ -28,13 +28,15 @@
       </button>
       <div *ngIf="isLoggedIn" class="right">
         <span>{{username}} </span>
-        <button mat-icon-button (click)="callLogout()">
+        <button mat-icon-button (click)="callLogout()"> <!-- LoggOut Icon-->
           <mat-icon>logout</mat-icon>
         </button>
       </div>
 
     </mat-toolbar>
-    <!-- Add Content Here -->
-    <router-outlet></router-outlet>
+    <router-outlet></router-outlet> <!-- Platzhalter für die per Routing eingebundenen Komponenten -->
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+<!-- Zusatz-Info aus dem Skript -->
+<!-- Wir haben jetzt sowohl bootstrap als auch Material Design als CSS-Framework -->

@@ -19,13 +19,12 @@ const routes: Routes = [
     pathMatch: 'full',// pathMatch: full gibt an, dass diese route nur aufgerufen wird, danach nichts weiter in der URL folgt
 
   },
-  { path: 'home',   redirectTo: 'mytasklist'},
   {
     path: "mytasklist", // steht hinten an der URL
     component: MytasklistComponent, // Komponente, die eingebunden wird
     canActivate: [AuthguardGuard]
   },
-
+  { path: 'mytasklist',   redirectTo: 'login'},
   {
     path: "login",
     title: "Login",
@@ -51,7 +50,6 @@ const routes: Routes = [
     canActivate: [AdminguardGuard]
   },
   { path: 'userlist',   redirectTo: '/blocked'},
-
   {
     path: "blocked",
     title: "Blocked",

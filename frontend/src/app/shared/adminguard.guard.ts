@@ -21,3 +21,6 @@ export class AdminguardGuard implements CanActivate {
   }
 
 }
+
+// --------------- Zusatz vom Skript ---------------
+// Idee von Guards: (AdminGuard) festlegen, dass nur Admin Zugriff auf Userlist hat (user muss eingelogged und adinm sein)
