@@ -1,33 +1,31 @@
 <main class="d-flex min-vh-100">
-  <fieldset class="container  mt-5">
-  <h1>Neue ToDo</h1>
+  <fieldset class="container mt-0 bg-light p-4 rounded">
+    <h1 class="mb-4">Neue ToDo</h1>
     <form [formGroup]="form" (ngSubmit)="create()">
-      <div class="mb-3 row">
-        <label class="col-2 col-form-label" for="aufgabe">Aufgabe</label>
-        <div class="col-10">
-          <input type="text" class="form-control" id="aufgabe" placeholder="Was möchtest du erledigen? "
-                 formControlName="aufgabeControl" />
+      <div class="row mb-4">
+        <div class="col">
+          <label class="form-label" for="aufgabe">Aufgabe</label>
+          <input type="text" class="form-control" id="aufgabe" placeholder="Was möchtest du erledigen?" formControlName="aufgabeControl" />
         </div>
       </div>
-      <div class="mb-3 row">
-        <label class="col-2 col-form-label" for="beschreibung">Beschreibung</label>
-        <div class="col-10">
-          <input type="text" class="col-10 form-control" id="beschreibung" placeholder="Erzähl uns mehr!"
-                 formControlName="beschreibungControl" />
+      <div class="row mb-4">
+        <div class="col">
+          <label class="form-label" for="beschreibung">Beschreibung</label>
+          <input type="text" class="form-control" id="beschreibung" placeholder="Erzähl uns mehr!" formControlName="beschreibungControl" />
         </div>
       </div>
-      <div class="mb-3 row">
-        <label class="col-2 col-form-label" for="frist">Fälligkeitsdatum</label>
-        <div class="col-10">
-          <input type="text" class="col-10 form-control" id="frist" placeholder="Bis wann soll das erledigt sein?" formControlName="fristControl" />
+      <div class="row mb-4">
+        <div class="col">
+          <label class="form-label" for="frist">Fälligkeitsdatum</label>
+          <input type="text" class="form-control" id="frist" placeholder="TT.MM.JJJJ HH:MM" formControlName="fristControl" />
         </div>
       </div>
-      <div class="row ">
-        <button type="submit" class="col-5 btn btn-secondary" (click)="create()" >Speichern</button>
-        <div class="col-2"></div>
-        <button type="button" class="col-5 btn btn-secondary" (click)="cancel() ">Abbrechen</button> <!-- am Click-Ereignis angemeldet, ruft die Fkt. cancel() auf -->
+      <div class="row">
+        <div class="col">
+          <button type="submit" class="btn btn-primary me-3">Speichern</button>
+          <button type="button" class="btn btn-outline-secondary" (click)="cancel()">Abbrechen</button>
+        </div>
       </div>
     </form>
   </fieldset>
 </main>
-

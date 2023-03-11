@@ -2,10 +2,9 @@ body {
   background-color: #f8f9fa;
 }
 
-/* fügt etwas Abstand hinzu */
 h1 {
   color: #333;
-  margin-top: 3rem;
+  margin-top: 3rem; /* fügt etwas Abstand hinzu */
 }
 
 p {
@@ -29,10 +28,3 @@ p {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
-/* Ändert die Farbe des Fußtextes */
-footer {
-  background-color: #333;
-  color: #fff;
-  padding: 2rem;
-  margin-top: 2rem;
-}
