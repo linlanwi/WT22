@@ -46,12 +46,13 @@ export class LoginComponent {
           } else {
             console.log('kein Login - Nutzername und/oder Passwort stimmen nicht');
             this.openDialog({ headline: "Fehler", info: 'Kein Login - Nutzername und/oder Passwort stimmen nicht' });
-
           }
         },
         error: (err) => {
           console.log('login error',err);
-
+          if (err.status === 400) {
+            this.openDialog({ headline: "Fehler", info: 'Benutzer existiert nicht' });
+          } else {} // Z.51: anonyme callback Funktion für den error Fall
         },
         complete: () => console.log('login completed')
       }
