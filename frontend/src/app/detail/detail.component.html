@@ -1,5 +1,5 @@
 <main class="d-flex min-vh-100">
-  <fieldset class="container mt-0 bg-light p-4 rounded">
+  <fieldset class="container mt-0 bg-light p-4">
     <h1 class="mb-4" *ngIf="todo && todo.aufgabe && todo.frist">Aktualisieren von Todo: "{{ todo.aufgabe }}" bis zum "{{ todo.frist }}"</h1>
     <!-- 1. ngIf wird ausgeführt, wenn todo und die angegeben Eigenschaften definiert sind -->
     <h1 class="mb-4" *ngIf="todo && (!todo.aufgabe || !todo.frist)">ToDo aktualisieren</h1>
