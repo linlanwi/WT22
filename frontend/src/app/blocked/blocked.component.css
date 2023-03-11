@@ -1,9 +1,38 @@
-#text
-{
-  font-size: 30px;
+body {
+  background-color: #f8f9fa;
 }
 
-h1
-{
-  font-size: 40px;
+/* fügt etwas Abstand hinzu */
+h1 {
+  color: #333;
+  margin-top: 3rem;
+}
+
+p {
+  color: #555;
+}
+
+/* Fügt Abstand zwischen dem Text und dem Button hinzu */
+.lead {
+  margin-bottom: 2rem;
+}
+
+/* Ändert die Farbe des Buttons */
+.btn-secondary {
+  color: #555;
+  background-color: #fff;
+  border-color: #ddd;
+}
+
+/* Fügt einen Schatten hinzu */
+.btn-secondary:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Ändert die Farbe des Fußtextes */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 2rem;
+  margin-top: 2rem;
 }
