@@ -5,11 +5,6 @@ import { BackendService } from '../shared/backend.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
-export interface DialogData {
-  headline: string;
-  info: string;
-}
-
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
