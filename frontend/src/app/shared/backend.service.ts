@@ -34,8 +34,6 @@ export class BackendService {
   }
 }
 
-
-
 // --------- Allgemeines ------------
 // Service mit Modul HttpClientModule für Kommunikation mit dem Backend per HTTP
 
@@ -50,5 +48,3 @@ export class BackendService {
 // Observable ist typisiert mit Datenmodell Todo
 // bekommen ein Array von Todo-Objekten zurück, deshalb Observable<ToDo[]> als Rückgabetyp
 // da der Rückgabetyp von getAll() so konkret ist, muss auch der Rückgabetyp von get() typisiert werden
-
-

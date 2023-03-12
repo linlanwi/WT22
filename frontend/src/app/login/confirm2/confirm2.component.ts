@@ -10,4 +10,3 @@ import { DialogData } from '../login.component';
 export class Confirm2Component {
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 }
-

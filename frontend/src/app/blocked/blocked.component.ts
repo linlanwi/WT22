@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./blocked.component.css']
 })
 export class BlockedComponent {
-
 }

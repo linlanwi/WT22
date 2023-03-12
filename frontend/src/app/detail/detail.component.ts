@@ -85,4 +85,3 @@ export class DetailComponent implements OnInit {
 
 // ------------------- Zusatz -------------------
 // getOne(id) des BackendService gibt Observable zurück, welches die subscribe()-Fkt. nutzen muss
-

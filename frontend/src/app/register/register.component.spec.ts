@@ -6,7 +6,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
-
 import { RegisterComponent } from './register.component';
 
 describe('RegisterComponent', () => {

@@ -17,7 +17,7 @@ p {
   margin-bottom: 2rem;
 }
 
-/* Ändert die Farbe des Buttons */
+/* Farbe des Buttons */
 .btn-secondary {
   color: #555;
   background-color: #fff;
@@ -28,4 +28,3 @@ p {
 .btn-secondary:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
-

@@ -69,6 +69,4 @@ export class MytasklistComponent implements OnInit {
   ClickEvent() {
     this.router.navigate(['/todo']);
   }
-
-
 }

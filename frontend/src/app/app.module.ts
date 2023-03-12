@@ -78,4 +78,3 @@ import { BlockedComponent } from './blocked/blocked.component';
 export class AppModule { }
 
 // HttpClientModule enthält einen Service HttpClient, der alle HTTP-Anfragemethoden, also GET, POST, usw. als Funktionen bereitstellt
-

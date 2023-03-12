@@ -32,6 +32,13 @@ export class RegisterComponent {
 
   onSubmit(): void {
     const values = this.registerForm.value;
+
+    // Fehlermeldung, wenn nicht alle Felder ausgefüllt sind
+    if (!values.username || !values.password || !values.password2 || !values.email || !values.role) {
+      this.openDialog({ headline: "Fehler", info: "Bitte füllen Sie alle Felder aus" });
+      return;
+    }
+
     this.user = {
       username: values.username!,
       password: values.password!,

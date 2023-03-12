@@ -11,6 +11,7 @@ import { User } from '../shared/user';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
+
 export class NavComponent {
   isLoggedIn = false;
   username: String = '';
@@ -44,6 +45,4 @@ export class NavComponent {
     this.auth.logout();
     this.router.navigate(['/login'])
   }
-
 }
-

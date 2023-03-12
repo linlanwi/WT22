@@ -11,7 +11,6 @@ import { Location } from '@angular/common';
   styleUrls: ['./create.component.css']
 })
 export class CreateComponent {
-
   todos!: Todo[];
   form!: FormGroup;
 
@@ -68,7 +67,6 @@ export class CreateComponent {
   // Callback-Funktionen: Funktionen, die wir einer anderen Funktion als Parameter übergeben, um sie später aufzurufen.
   // Das bedeutet, dass die andere Funktion die Kontrolle an unsere Callback-Funktion übergibt, sobald ein bestimmtes Ereignis eintritt, und wir können dann unsere eigene Logik ausführen, basierend auf dem Ereignis, das eingetreten ist.
   // Callback-Funktionen werden oft in asynchronen Operationen verwendet, bei denen wir auf eine Antwort warten müssen, bevor wir mit der nächsten Aktion fortfahren können.
-
 
   cancel(): void {
     this.location.back();

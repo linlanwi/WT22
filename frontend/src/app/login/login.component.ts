@@ -45,7 +45,7 @@ export class LoginComponent {
             )
           } else {
             console.log('kein Login - Nutzername und/oder Passwort stimmen nicht');
-            this.openDialog({ headline: "Fehler", info: 'Kein Login - Nutzername und/oder Passwort stimmen nicht' });
+            this.openDialog({ headline: "Fehler", info: 'Kein Login - Passwort stimmt nicht' });
           }
         },
         error: (err) => {
