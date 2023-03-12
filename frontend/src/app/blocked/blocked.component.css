@@ -9,10 +9,11 @@ h1 {
 
 p {
   color: #555;
+  font-size: 20px;
 }
 
 /* Fügt Abstand zwischen dem Text und dem Button hinzu */
-.lead {
+.test-abstand {
   margin-bottom: 2rem;
 }
 
@@ -20,10 +21,10 @@ p {
 .btn-secondary {
   color: #555;
   background-color: #fff;
-  border-color: #ddd;
+  border-color: gray;
 }
 
-/* Fügt einen Schatten hinzu */
+/* Button Schatten */
 .btn-secondary:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }

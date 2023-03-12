@@ -16,7 +16,7 @@ const routes: Routes = [
     path: "",
     title: "Home",
     component: HomeComponent,
-    pathMatch: 'full',// pathMatch: full gibt an, dass diese route nur aufgerufen wird, danach nichts weiter in der URL folgt
+    pathMatch: 'full',// pathMatch: full gibt an, dass diese route nur aufgerufen wird, wenn danach nichts weiter in der URL folgt
 
   },
   {

@@ -44,11 +44,11 @@ export class RegisterComponent {
         console.log('response', response)
         this.user = response;
         this.auth.login(this.user) // rufen die login()-Fkt. des Services auf
-        this.openDialog({ headline: "Erfolg", info: "User " + response.username + " registriert!" });
+        this.openDialog({ headline: "Erfolg", info: "Nutzerin " + response.username + " registriert!" });
       },
       error: (err) => {
         console.log('error', err.error.error)
-        this.openDialog({ headline: "Fehler", info: "Username und/oder E-Mail existiert bereits" });
+        this.openDialog({ headline: "Fehler", info: "Nutzername und/oder E-Mail existiert bereits" });
       },
       complete: () => console.log('register completed')
     });
